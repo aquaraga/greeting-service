@@ -12,10 +12,10 @@ variables:
   azureSubscription: '90d4afc7-02d5-46df-abd7-82c250b0efb0'
   
   # Web app name
-  webAppName: 'rest-service-1587320596949'
+  webAppName: 'greeting-service'
 
   # Environment name
-  environmentName: 'rest-service-1587320596949'
+  environmentName: 'greeting-service'
   
   # Agent VM image name
   vmImageName: 'ubuntu-latest'
@@ -60,7 +60,7 @@ stages:
         deploy:
           steps:
           - task: AzureWebApp@1
-            displayName: 'Azure Web App Deploy: rest-service-1587320596949'
+            displayName: 'Azure Web App Deploy: greeting-service'
             inputs:
               azureSubscription: $(azureSubscription)
               appType: webAppLinux
