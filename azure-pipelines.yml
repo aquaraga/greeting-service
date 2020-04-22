@@ -76,23 +76,18 @@ stages:
 #         containerRegistry: $(dockerRegistryServiceConnection)
 #         dockerfile: '$(Build.SourcesDirectory)/Dockerfile'
 
+
 - stage: Deploy
   displayName: Deploy stage
-  # dependsOn: Build
-  # condition: succeeded()
   jobs:
-  - deployment: DeployLinuxApp
+  - job: DeployLinuxApp
     displayName: Deploy Linux App
-    environment: $(environmentName)
-    pool: 
+    pool:
       vmImage: $(vmImageName)
-    strategy:
-      runOnce:
-        deploy:
-          steps:
-          - task: AzureWebAppContainer@1
-          displayName: 'Azure Web App on Container Deploy'
-          inputs:
-            azureSubscription: $(azureSubscription)
-            appName: $(appName)
-            imageName: $(containerRegistry)/$(imageRepository):$(tag)
+    steps:
+    - task: AzureWebAppContainer@1
+      displayName: 'Azure Web App on Container Deploy'
+      inputs:
+        azureSubscription: $(azureSubscription)
+        appName: $(appName)
+        imageName: $(containerRegistry)/$(imageRepository):$(tag)
