@@ -24,6 +24,9 @@ variables:
 
   dockerRegistryServiceConnection: 'greeting-registry-connection'
 
+  MAVEN_CACHE_FOLDER: $(Pipeline.Workspace)/.m2/repository
+  MAVEN_OPTS: '-Dmaven.repo.local=$(MAVEN_CACHE_FOLDER)'
+
 stages:
 
 - stage: Build
@@ -35,6 +38,15 @@ stages:
       vmImage: $(vmImageName)
     
     steps:
+    - task: Cache@2
+      inputs:
+        key: 'maven | "$(Agent.OS)" | **/pom.xml'
+        restoreKeys: |
+          maven | "$(Agent.OS)"
+          maven
+        path: $(MAVEN_CACHE_FOLDER)
+      displayName: Cache Maven local repo
+      
     - task: Maven@3
       displayName: 'Maven Package'
       inputs:
@@ -58,5 +70,4 @@ stages:
       inputs:
         command: buildAndPush
         repository: $(imageRepository)
-        dockerfile: DockerFile
         containerRegistry: $(dockerRegistryServiceConnection)
