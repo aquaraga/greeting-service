@@ -22,7 +22,7 @@ variables:
 
   imageRepository: 'aquaraga/greeting'
 
-  dockerRegistryServiceConnection: 'greetingregistry'
+  dockerRegistryServiceConnection: 'greeting-registry-connection'
 
 stages:
 
