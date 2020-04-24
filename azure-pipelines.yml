@@ -27,7 +27,7 @@ variables:
   #Todo: Need to check if service connection can be used instead of this property
   containerRegistry: 'greetingregistry.azurecr.io'
 
-  MAVEN_CACHE_FOLDER: $(Pipeline.Workspace)/.m2/repository
+  MAVEN_CACHE_FOLDER: $(Build.SourcesDirectory)/.m2/repository
   MAVEN_OPTS: '-Dmaven.repo.local=$(MAVEN_CACHE_FOLDER)'
 
   tag: '1.0.0'
