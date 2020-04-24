@@ -43,14 +43,14 @@ stages:
       vmImage: $(vmImageName)
     
     steps:
-    - task: Cache@2
-      inputs:
-        key: 'maven | "$(Agent.OS)" | **/pom.xml'
-        restoreKeys: |
-          maven | "$(Agent.OS)"
-          maven
-        path: $(MAVEN_CACHE_FOLDER)
-      displayName: Cache Maven local repo
+    # - task: Cache@2
+    #   inputs:
+    #     key: 'maven | "$(Agent.OS)" | **/pom.xml'
+    #     restoreKeys: |
+    #       maven | "$(Agent.OS)"
+    #       maven
+    #     path: $(MAVEN_CACHE_FOLDER)
+    #   displayName: Cache Maven local repo
 
     - task: Maven@3
       displayName: 'Maven Package'
