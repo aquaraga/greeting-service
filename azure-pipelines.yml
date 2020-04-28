@@ -12,7 +12,7 @@ variables:
   azureSubscription: '90d4afc7-02d5-46df-abd7-82c250b0efb0'
   
   # App name
-  appName: 'greeting-service'
+  appName: 'greeting-appservice'
 
   # Environment name
   environmentName: 'greeting-service'

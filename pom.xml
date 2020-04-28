@@ -46,8 +46,8 @@
         <version>1.9.0</version>  
         <configuration> 
           <schemaVersion>V2</schemaVersion>  
-          <resourceGroup>greeting-group</resourceGroup>  
-          <appName>greeting-service</appName>  
+          <resourceGroup>greeting-resources</resourceGroup>  
+          <appName>greeting-appservice</appName>  
           <pricingTier>P1v2</pricingTier>  
           <region>eastus</region>  
           <runtime> 
