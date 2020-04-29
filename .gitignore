@@ -86,4 +86,7 @@ local.properties
 ### Maven ###
 target/
 
+### Terraform
+*.tfstate*
+
 /bin
