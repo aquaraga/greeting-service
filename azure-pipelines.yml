@@ -22,7 +22,7 @@ variables:
 
   imageRepository: 'aquaraga/greeting'
 
-  dockerRegistryServiceConnection: 'greeting-registry-connection'
+  dockerRegistryServiceConnection: 'greeting-connection'
 
   #Todo: Need to check if service connection can be used instead of this property
   containerRegistry: 'greetingregistry.azurecr.io'
